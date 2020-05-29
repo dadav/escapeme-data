@@ -1,49 +1,87 @@
-{
-  "meta": {
-    "description": {
-      "short": "just a test",
-      "long": "just a long test"
-    },
-    "thumbnail": "submarine.jpg",
-    "image": "submarine.jpg",
-    "duration": "1h45m",
-    "difficulty": "Normal",
-    "intro-music-file": "uboat.mp3"
+local templates = import '../../templates.libsonnet';
+
+templates.Room {
+  meta: templates.RoomMeta {
+    title: 'Die Reise mit dem U-Boot',
+    description: 'Beschreibung',
+    image: 'submarine.jpg',
+    soundfile: 'uboat.mp3',
+    duration: '1h45m',
+    difficulty: 'normal',
   },
-  "levels": {
-    "0": {
-      "meta": {
-        "description": {
-          "short": "Kurze Beschreibung",
-          "long": "Lorem ipsum dolor sLorem ipsum dolor sLorem ipsum dolor sLorem ipsum dolor sLorem ipsum dolor sLorem ipsum dolor sLorem ipsum dolor sLorem ipsum dolor sLorem ipsum dolor sLorem ipsum dolor sLorem ipsum dolor sLorem ipsum dolor sLorem ipsum dolor sLorem ipsum dolor sLorem ipsum dolor sLorem ipsum dolor sLorem ipsum dolor sLorem ipsum dolor sLorem ipsum dolor s"
-        },
-        "thumbnail": "submarine.jpg",
-        "title": "Im U-Boot",
-        "type": "start",
-        "password": ""
+  text: 'html code',
+  levels: [
+    templates.Level {
+      meta: templates.LevelMeta {
+        title: 'Level 1',
+        description: '',
+        image: 'submarine.jpg',
+        type: 'start',
+        password: '',
       },
-      "questions": {
-        "0": {
-          "txt": "aaaaa",
-          "answers": {
-            "0": "answer 1",
-            "1": "answer 2",
-            "2": "answer 3",
-            "3": "answer 4"
-          },
-          "correct": "0"
+      text: 'Das ist die Erklärung',
+      questions: [
+        templates.Question {
+          text: 'Das ist die Frage',
+          answers: [
+            templates.Answer {
+              text: 'antwort 1',
+              value: 'ABC',
+              correct: true,
+            },
+            templates.Answer {
+              text: 'antwort 2',
+              value: 'ABC',
+              correct: false,
+            },
+          ],
         },
-        "1": {
-          "txt": "aaaaa",
-          "answers": {
-            "0": "answer 1",
-            "1": "answer 2",
-            "2": "answer 3",
-            "3": "answer 4"
-          },
-          "correct": "0"
-        }
-      }
-    }
-  }
+        templates.Question {
+          text: 'Das ist die Frage',
+          answers: [
+            templates.Answer {
+              text: 'antwort 1',
+              value: 'DEF',
+              correct: true,
+            },
+            templates.Answer {
+              text: 'antwort 2',
+              value: 'ABC',
+              correct: false,
+            },
+          ],
+        },
+      ],
+    },
+    templates.Level {
+      meta: templates.LevelMeta {
+        title: 'Level 2',
+        description: '',
+        image: 'submarine.jpg',
+        type: 'normal',
+        password: std.join('-', std.map(function(q) q.value, $.levels[0].questions)),
+        lock: {
+          text: 'test',
+        },
+      },
+      text: 'Das ist die Erklärung',
+      questions: [
+        templates.Question {
+          text: 'Das ist die Frage',
+          answers: [
+            templates.Answer {
+              text: 'antwort 1',
+              value: 'ABC',
+              correct: true,
+            },
+            templates.Answer {
+              text: 'antwort 2',
+              value: 'ABC',
+              correct: false,
+            },
+          ],
+        },
+      ],
+    },
+  ],
 }
