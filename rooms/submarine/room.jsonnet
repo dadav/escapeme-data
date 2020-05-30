@@ -3,13 +3,28 @@ local templates = import '../../templates.libsonnet';
 templates.Room {
   meta: templates.RoomMeta {
     title: 'Die Reise mit dem U-Boot',
-    description: 'Beschreibung',
+    description: 'Erlebe ein Abenteuer in dem sich alles um ein mysteriöses U-Boot dreht!',
     image: 'submarine.jpg',
     soundfile: 'uboat.mp3',
     duration: '1h45m',
     difficulty: 'normal',
   },
-  text: 'html code',
+  customizations: [
+    templates.Customization {
+      description: 'Person1',
+      variable: 'person1',
+      default: 'Manuel',
+    },
+  ],
+  text: |||
+    Ummm..mein Kopf..
+    <br>
+    Alles ist dunkel...wo bin ich?
+
+    Meine Augen...sie sind..verbunden??
+
+    {person1}? Bist du das?
+  |||,
   levels: [
     templates.Level {
       meta: templates.LevelMeta {
@@ -19,34 +34,19 @@ templates.Room {
         type: 'start',
         password: '',
       },
-      text: 'Das ist die Erklärung',
+      text: 'In dieser Geschichte geht es um {person1}',
       questions: [
         templates.Question {
-          text: 'Das ist die Frage',
+          text: 'Wer ist der Mörder?',
           answers: [
             templates.Answer {
-              text: 'antwort 1',
-              value: 'ABC',
+              text: '{person1}',
+              value: '{person1}',
               correct: true,
             },
             templates.Answer {
-              text: 'antwort 2',
-              value: 'ABC',
-              correct: false,
-            },
-          ],
-        },
-        templates.Question {
-          text: 'Das ist die Frage',
-          answers: [
-            templates.Answer {
-              text: 'antwort 1',
-              value: 'DEF',
-              correct: true,
-            },
-            templates.Answer {
-              text: 'antwort 2',
-              value: 'ABC',
+              text: '{person1}',
+              value: '{person1}',
               correct: false,
             },
           ],
@@ -58,7 +58,7 @@ templates.Room {
         title: 'Level 2',
         description: '',
         image: 'submarine.jpg',
-        type: 'normal',
+        type: 'ende',
         password: std.join('-', std.map(function(q) q.value, $.levels[0].questions)),
         lock: {
           text: 'test',
@@ -76,7 +76,7 @@ templates.Room {
             },
             templates.Answer {
               text: 'antwort 2',
-              value: 'ABC',
+              value: 'ABCD',
               correct: false,
             },
           ],

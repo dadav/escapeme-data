@@ -1,6 +1,12 @@
 {
   local templates = self,
 
+  Customization: {
+    description: error 'Beschreibung fehlt',
+    variable: error 'Variable fehlt',
+    default: error 'Defaultwert fehlt',
+  },
+
   Meta: {
     title: error 'Titel fehlt',
     description: error 'Beschreibung fehlt',
@@ -14,6 +20,8 @@
     duration: error 'Angabe zur Dauer fehlt',
     difficulty: error 'Angabe zur Schwierigkeit fehlt',
     assert std.member(['normal', 'mittel', 'schwer'], self.difficulty) == true,
+    assert std.length(std.findSubstr('{', self.title)) == 0,
+    assert std.length(std.findSubstr('{', self.description)) == 0,
   },
 
   LockPage: {
@@ -58,6 +66,8 @@
     meta: templates.RoomMeta,
     text: error 'Kein Text angegeben',
     levels: error 'Keine Level angegeben',
+    customizations: [],
     assert std.isArray(self.levels) == true,
+    assert std.isArray(self.customizations) == true,
   },
 }
