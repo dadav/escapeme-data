@@ -153,9 +153,19 @@ templates.Room {
       text: |||
         test
       |||,
-      question: templates.TextQuestion {
+      question: templates.SelectQuestion {
         text: 'Wie lautet das Passwort?',
-        value: 'nichts',
+        answers: [
+          templates.Answer {
+            text: 'answer 1',
+            value: '1',
+            correct: true,
+          },
+          templates.Answer {
+            text: 'answer 2',
+            value: '2',
+          },
+        ],
       },
       hints: [],
       success: '',
