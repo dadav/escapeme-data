@@ -130,7 +130,7 @@ templates.Room {
         <br>
         "<b>Eins nach dem anderen..</b>", murmelte {person1} vor sich hin und machte sich daran, das Rätsel zu lösen<br>
         <br>
-        <img src="../../../notiz.jpg">
+        <img class="img-fluid" src="../../../notiz.jpg">
       |||,
       question: templates.TextQuestion {
         text: 'Wie lautet das Passwort?',
