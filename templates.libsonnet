@@ -24,16 +24,9 @@
     assert std.length(std.findSubstr('{', self.description)) == 0,
   },
 
-  LockPage: {
-    text: error 'Text fehlt',
-    image: '',
-    assert std.isString(self.text),
-  },
-
   LevelMeta: templates.Meta {
-    password: '',
-    lock: if std.length(self.password) > 0 then templates.LockPage else null,  // Wenn ein Passwort gesetzt ist, benötigen wir Daten zu Lockpage
     type: 'normal',
+    depends: [],
     assert std.member(['normal', 'start', 'ende'], self.type) == true,
   },
 
@@ -47,7 +40,20 @@
   },
 
   Question: {
-    text: error 'Text fehlt',
+    text: error 'Fragetext fehlt',
+    type: error 'Gebe den Typ der Frage an',
+    value: error 'Antwort fehlt',
+  },
+
+  TextQuestion: templates.Question {
+    type: 'text',
+    value: error 'Antwort fehlt',
+    ignorecase: false,
+    levenshtein: 3,
+  },
+
+  SelectQuestion: templates.Question {
+    type: 'select',
     answers: error 'Antworten fehlen',
     assert std.isArray(self.answers) == true,
     assert std.length(self.answers) > 1,
@@ -59,7 +65,9 @@
   Level: {
     meta: templates.LevelMeta,
     text: error 'Kein Text angegeben',
-    questions: error 'Fragen fehlen',
+    question: error 'Frage fehlt',
+    success: error 'Text fehlt',
+    hints: [],
   },
 
   Room: {
