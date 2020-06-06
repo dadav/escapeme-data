@@ -117,25 +117,51 @@ templates.Room {
         description: $.levels[0].success,
         image: 'kammer.jpg',
         depends: [0],  //std.join('-', std.map(function(q) q.value, $.levels[0].questions)),
+        cssfile: 'level2.css',
+        jsfile: 'level2.js',
       },
       text: |||
-        Er war voller Tatendrang, stand nun aber vor der großen Herausforderung,
-        aus diesem Gefängnis aus Stahl zu entkommen.
-        Der einzige Ausgang war eine kleine Luke am Ende des Raums, die natürlich mit einem Passwort verriegelt
-        war.<br>
-        Doch was war das? Neben dem Eingabefeld für das Passwort hing ein kleiner Zettel. Könnte das etwa...?<br>
+        {person1}s Blick wanderte durch den Raum in dem er gefangen war. Es war ziemlich dunkel, weshalb er nur Umrisse
+        erkennen konnte. Er konnte nach kurzer Zeit eine Taschenlampe finden und erkundete damit den Raum!<br>
         <br>
-        Es war <b>ein Rätsel</b> und sollte den Verrätern wohl als Gedankenstüzte dienen, falls sie sich aus Versehen einsperrten.<br>
+        "Dieser Raum muss eine Lampe besitzen, aber wo ist der Schalter", dachte er sich.<br>
         <br>
-        "<b>Eins nach dem anderen..</b>", murmelte {person1} vor sich hin und machte sich daran, das Rätsel zu lösen<br>
+
+        <div id="dark-room-container" class="img-fluid" onmousemove="moveTorch(event)">
+          <div id="torch" class="img-fluid">
+            <button id="light" onClick="turnOnLight()" class="button red">Licht</button>
+          </div>
+        </div>
+
+        <div id="room-container" style="display: none;">
+          <img class="img-fluid" src="../../../raum.jpg">
+          <a id="note-open-button" onClick="openNote()"></a>
+        </div>
         <br>
-        <img class="img-fluid" src="../../../notiz.jpg">
+
+        <div id="light-on-text" style="display: none;">
         <br>
+        {person1} war sichtlich erleichtert, als er den Lichtschalter betätigte. Endlich wieder Licht!<br>
+        Die Luke war jedoch verschlossen und mit einem Passwort gesichert worden (das war bei Atom-U-Booten üblich).
+        </div>
+        <br>
+        <div id="note" style="display: none;">
+          <img class="img-fluid" src="../../../notiz.jpg">
+          <br>
+          <br>
+          Doch was war das? Neben der Luke hing ein kleiner Zettel. Könnte das etwa...?<br>
+          <br>
+          Es war <b>ein Rätsel</b> und sollte den Verrätern wohl als Gedankenstüzte dienen, falls sie sich aus Versehen einsperrten.<br>
+        </div>
       |||,
       question: templates.TextQuestion {
         text: 'Wie lautet das Passwort?',
         value: 'nichts',
       },
+      hints: [
+        'Glaubst du man kann sich jedes Passwort auf dem U-Boot merken?',
+        'Doch was war das? Neben der Luke hing ein kleiner Zettel.',
+      ],
       success: |||
         Unglaublich, dass man für dieses Passwort eine Notiz benötigt, oder?<br>
         <br>

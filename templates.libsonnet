@@ -13,6 +13,8 @@
     image: error 'Bilddatei fehlt',
     thumbnail: self.image,
     soundfile: '',
+    cssfile: '',
+    jsfile: '',
     assert std.length(self.description) <= 140 : 'Beschreibung ist zu lang',
   },
 

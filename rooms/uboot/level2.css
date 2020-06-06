@@ -1,0 +1,53 @@
+#dark-room-container {
+  width: 660px;
+  height: 420px;
+  background:linear-gradient(rgba(0,0,0,0.9),rgba(0,0,0,0.9)),url("raum.jpg") center no-repeat;
+  background-size:cover;
+  cursor:none;
+}
+
+#torch {
+  width: 660px;
+  height: 420px;
+  background:url("raum.jpg") center no-repeat;
+  background-size:cover;
+  clip-path:circle(40px at 0px 0px);
+}
+
+#light {
+  height: 15px;
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 8px;
+  cursor: pointer;
+}
+
+#light {
+  float: right;
+}
+
+#room-container {
+  position: relative;
+}
+
+#note-open-button {
+  position: absolute;
+  width: 4%;
+  height: 4%;
+  top: 60%;
+  left: 65%;
+  transform: translate(-50%, -50%) rotate(-20deg);
+  -ms-transform: translate(-50%, -50%) rotate(-20deg);
+}
+
+@media (min-width: 900px) {
+  #room-container {
+    max-width: 660px!important;
+  }
+}
+
+.red {background-color: #f44336;}
