@@ -51,12 +51,28 @@ templates.Room {
         type: 'start',
       },
       text: |||
+        {person1} war ein ganz normaler Mann. Verheiratet, zwei Kinder und mit 32 Jahren im
+        besten Alter. Er hatte sich gerade mit seiner Frau ein Haus gekauft und plante sich von seinem operativen
+        Einsatz zu einem Bürojob versetzen zu lassen.<br>
+        <br>
+        Seine besten Freunde {person2} und {person3}, die ebenfalls mit ihm an Bord waren, freuten sich zwar für
+        {person1}s gefundenes Glück, waren aber auch traurig darüber, dass er die Crew verlassen würde. Sie gingen
+        schließlich durch dick und dünn, erlebten unzählige Abenteuer miteinander und konnten einander alles erzählen.<br>
+        <br>
+        {person2} war der IT-Spezialist der K-19. Er predigte immer wie wichtig ein gutes Passwort sein würde und wie
+        viele einfach Jahr für Jahr ihr Lieblingstier als Passwort benutzten würden.<br>
+        {person3} hingegen war für die Kommunikation an Bord verantwortlich.<br>
+        Sie lernten sich vor drei Jahren bei einem Außeneinsatz in der russischen Botschaft in den USA kennen und
+        waren seither unzertrennlich.<br>
+        <br>
+        <b>...</b><br>
+        <br>
         Mit schmerzendem Kopf und gefesselten Händen erlangte {person1} das Bewusstsein...<br>
         <br>
         Was zum Teufel war geschen?<br>
-        Das letzte, an das er sich erinnern konnte, war die Wachablösung bei den Atomraketen gestern Nacht.<br>
+        Das letzte, an das er sich erinnern konnte, war die Wachablösung bei den Atom-Sprengköpfen gestern Nacht.<br>
         <br>
-        "Bin ich tot? Ist das der Himmel?...", dachte {person1}. Nein, seine Schmerzen bewiesen ihm das Gegenteil.
+        "Bin ich tot? Ist das der Himmel?...", dachte {person1}. Nein, seine Schmerzen bewiesen ihm das Gegenteil.<br>
         Doch etwas schlimmes musste passiert sein!<br>
         <br>
         {person1} fing an nach Hilfe zu rufen, doch niemand schien ihn zu hören.<br>
@@ -64,14 +80,13 @@ templates.Room {
         <br>
         <b>Er musste die Sache also selbst in die Hand nehmen.</b><br>
         <br>
-        Er tastete, so gut er konnte, mit seinen Fingern die Fesseln ab und entdeckte eine Zahlenschloss, das er noch
-        sehr gut aus seiner Kindheit kannte und daher auch hinter seinem Rücken blind bedinen konnte.<br>
-        Doch welche Zahlenkombination wurde verwendet?<br>
-        Bei 5 Zahlen gibt es schließlich <b>100.000</b> mögliche Kombinationen...<br>
+        Er tastete, so gut er konnte, mit seinen Fingern die Fesseln ab und entdeckte eine Zahlenschloss. {person1} hatte
+        ein gutes Fingerspritzengefühl und konnte die einzelnen Zahlen fühlen.<br>
+        Es waren 5 Zahlen notwendig...{person1} musste schlucken, denn das hieß,
+        dass es <b>100.000</b> mögliche Kombinationen gab...<br>
         <br>
-        {person1} dachte nach und als er völlig in sich gekehrt war,
-        hörte er plötzlich ganz leise folgende Geräusche:<br>
-
+        Er dachte nach und als er völlig in sich gekehrt war, hörte er plötzlich ganz leise folgendes:<br>
+        <br>
         <audio controls>
           <source src="../../../morse.mp3" type="audio/mpeg">
           Der Browser unterstützt das Format nicht.
@@ -79,58 +94,43 @@ templates.Room {
           <a href="../../../morse.mp3">Audio</a>
         </audio>
         <br>
-        Für einen Seemann wie {person1} war diese Übung natürlich ein leichtes,
+        Für einen Seemann wie {person1} war dies natürlich eine leichte Übung,
         weshalb er sich im Nu befreien konnte!
       |||,
       question: templates.TextQuestion {
-        text: 'Wie lautet der Code für die Handschellen? Finde das nächste Level und gib die korrekte Kombination ein.',
+        text: 'Wie lautet der Code für die Handschellen?',
         value: '83620',
+        ignorecase: false,
+        levenshtein: 1,
       },
       hints: [
-        'Die Aufnahme ist das in Morsecode verschlüsselte Passwort!',
+        'Suche im Internet nach "Morcecode"!',
       ],
       success: |||
-        Super, {person1} konnte sich befreien und ist nun bereit den Raum zu erkunden!!
+        Endlich, {person1} konnte sich befreien und war nun bereit den Raum zu erkunden!!
       |||,
     },
     templates.Level {
       meta: templates.LevelMeta {
         type: 'normal',
         title: 'Der Raum',
-        description: '{person1} sucht einen Ausgang.',
+        description: $.levels[0].success,
         image: 'kammer.jpg',
         depends: [0],  //std.join('-', std.map(function(q) q.value, $.levels[0].questions)),
       },
       text: |||
-        Endlich hatte {person1} die Hände wieder frei!<br>
-        <br>
-        Er war voller Tatendrang, stand aber vor der großen Herausforderung, erstmal aus diesem Gefängnis aus Stahl zu entkommen.
-        Der einzige Ausgang war eine kleine Luke am Ende des Raums, die natürlich mit einem ihm unbekannten Passwort verriegelt
+        Er war voller Tatendrang, stand nun aber vor der großen Herausforderung,
+        aus diesem Gefängnis aus Stahl zu entkommen.
+        Der einzige Ausgang war eine kleine Luke am Ende des Raums, die natürlich mit einem Passwort verriegelt
         war.<br>
         Doch was war das? Neben dem Eingabefeld für das Passwort hing ein kleiner Zettel. Könnte das etwa...?<br>
         <br>
-        Nein!<br>
-        <br>
-        Doch!<br>
-        <br>
-        Ohhh!<br>
-        <br>
         Es war <b>ein Rätsel</b> und sollte den Verrätern wohl als Gedankenstüzte dienen, falls sie sich aus Versehen einsperrten.<br>
-        <br>
-        Doch Moment mal, <b>wer war eigentlich sein heimlicher Helfer?</b><br>
-        <br>
-        Möglicherweise war dies die einzige Person, der er noch vertrauen konnte. Er musste sie finden.
-        Eventuell war es ja {person2}, sein bester Freund seit dem Kindergarten und treuer Kamerad.<br>
-        Oder es war {person3}, die einzige Frau in der Crew, seine große Liebe.<br>
-        <br>
-        Im besten Fall waren es beide.<br>
-        Im schlimmsten Fall nur einer von beiden.<br>
-        Es gab noch eine dritte Möglichkeit und {person1} schaffte es nicht, diesen Gedanken komplett zu verdrängen:
-        <b>Keiner von beiden.</b><br>
         <br>
         "<b>Eins nach dem anderen..</b>", murmelte {person1} vor sich hin und machte sich daran, das Rätsel zu lösen<br>
         <br>
         <img class="img-fluid" src="../../../notiz.jpg">
+        <br>
       |||,
       question: templates.TextQuestion {
         text: 'Wie lautet das Passwort?',
@@ -144,9 +144,9 @@ templates.Room {
     },
     templates.Level {
       meta: templates.LevelMeta {
-        type: 'ende',
+        type: 'normal',
         title: 'Der Plan',
-        description: 'Ein Plan muss her.',
+        description: '{person1} überlegt wie er vorgehen soll...',
         image: 'plan.jpg',
         depends: [1],
       },

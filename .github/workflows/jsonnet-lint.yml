@@ -1,0 +1,16 @@
+name: Linting
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Lint jsonnet
+      uses: dadav/jsonnet-lint-action@master
+      with:
+        targets: |
+          templates.libsonnet
+          rooms/**/*.jsonnet
