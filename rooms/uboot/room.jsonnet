@@ -113,7 +113,7 @@ templates.Room {
     templates.Level {
       meta: templates.LevelMeta {
         type: 'normal',
-        title: 'Der Raum',
+        title: '{person1}s Zelle',
         description: $.levels[0].success,
         image: 'kammer.jpg',
         depends: [0],  //std.join('-', std.map(function(q) q.value, $.levels[0].questions)),
@@ -165,15 +165,52 @@ templates.Room {
       success: |||
         Unglaublich, dass man für dieses Passwort eine Notiz benötigt, oder?<br>
         <br>
-        {person1} hat sich nun endlich wieder auf freiem Fuß und kann erkunden was da los ist!!
+        {person1} war nun endlich wieder auf freiem Fuß!!<br>
+        <br>
+        Doch wohin sollte er gehen?<br>
+        <br>
+        Er hatte die Idee {person3} im Funkraum aufzusuchen, weil {person3} ihm höchstwahrscheinlich den
+        Code für seine Fesseln gefunkt hatte. Oder sollte er etwa zu {person2} gehen, weil der Technikraum
+        leichter zu erreichen war...
       |||,
     },
     templates.Level {
       meta: templates.LevelMeta {
         type: 'normal',
-        title: 'Der Plan',
-        description: '{person1} überlegt wie er vorgehen soll...',
-        image: 'plan.jpg',
+        title: 'Funkraum',
+        description: '{person1} versucht zum Funkraum zu gelangen.',
+        image: 'funkraum.jpg',
+        depends: [1],
+      },
+      text: |||
+        {person1} entschied sich nun zum Funkraum zu gehen. {person3} sollte es möglich sein
+        in Erfahrung zu bringen was vorgefallen war. Das Problem war nur, dass der Funkraum
+        auf der anderen Seite des U-Bootes war und {person1} in Gefahr laufen konnte jemandem
+        zu begegnen der nichts gutes im Sinn hatte.
+      |||,
+      question: templates.SelectQuestion {
+        text: 'Wie lautet das Passwort?',
+        answers: [
+          templates.Answer {
+            text: 'answer 1',
+            value: '1',
+            correct: true,
+          },
+          templates.Answer {
+            text: 'answer 2',
+            value: '2',
+          },
+        ],
+      },
+      hints: [],
+      success: '',
+    },
+    templates.Level {
+      meta: templates.LevelMeta {
+        type: 'normal',
+        title: 'Technikraum',
+        description: '{person1} schlägt sich zum Technikraum durch...',
+        image: 'technik.jpg',
         depends: [1],
       },
       text: |||
