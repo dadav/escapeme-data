@@ -24,9 +24,6 @@
   display: inline-block;
   font-size: 8px;
   cursor: pointer;
-}
-
-#light {
   float: right;
 }
 
@@ -42,6 +39,7 @@
   left: 65%;
   transform: translate(-50%, -50%) rotate(-20deg);
   -ms-transform: translate(-50%, -50%) rotate(-20deg);
+  cursor: pointer;
 }
 
 @media (min-width: 900px) {

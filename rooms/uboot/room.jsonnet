@@ -25,6 +25,16 @@ templates.Room {
       variable: 'person3',
       default: 'Olga',
     },
+    templates.Customization {
+      description: 'Person4 (männlich)',
+      variable: 'person4',
+      default: 'Iwan',
+    },
+    templates.Customization {
+      description: 'Person5 (männlich)',
+      variable: 'person5',
+      default: 'Andrej',
+    },
   ],
   text: |||
     Wir schreiben den 22. Oktober 1962. John F. Kennedy hat gerade im Fernsehen verkündet,<br>
@@ -183,27 +193,50 @@ templates.Room {
         depends: [1],
       },
       text: |||
-        {person1} entschied sich nun zum Funkraum zu gehen. {person3} sollte es möglich sein
+        {person1} entschied sich zum Funkraum zu gehen. {person3} sollte es möglich sein
         in Erfahrung zu bringen was vorgefallen war. Das Problem war nur, dass der Funkraum
         auf der anderen Seite des U-Bootes war und {person1} in Gefahr laufen konnte jemandem
-        zu begegnen der nichts gutes im Sinn hatte.
+        zu begegnen der nichts gutes im Sinn hatte.<br>
+        <br>
+        Kaum war er durch die erste Luke gestiegen, hörte er zwei Stimmen. {person1} vermutete, dass es {person4}
+        und {person5} sein mussten.<br>
+        <br>
+        Folgendes konnte er mithören:<br>
+        <br>
+        <b>{person4}:</b> ...mir ergal. Wenn wir erstmal dort sind, gibt es sowieso kein zurück mehr.<br>
+        <b>{person5}:</b> Da hast du recht. Ich bin immernoch ganz erstaunt, wie gut alles läuft.
+        Bis auf die Sache mit {person1} gab es keine Probleme.<br>
+        <b>{person4}:</b> Ja, ich hätte nie gedacht, dass {person1} da nicht mitspielt. Naja, selbst schuld...<br>
+        <b>{person5}:</b> Nur gut, dass wir ihm die Abschusscodes der Rakenten abnehmen konnten.<br>
+        <b>{person4}:</b> Stimmt, ohne die könnten wir den Plan nicht durchführen. Meinen Teil der Codes habe ich mir
+        schon eingeprägt. Das war auch ganz einfach, weil der Code die Quersumme meiner Personalnummer ist.<br>
+        <b>{person5}:</b> Pssst, {person4}, du weißt, das solltest du niemandem sagen, auch mir nicht.<br>
+        <b>{person4}:</b> Verdammt, vergiss was ich gesagt habe.<br>
+        <br>
+        Daraufin verließen {person4} und {person5} den Raum und {person1} konnte ihn ohne Gefahr durchqueren.<br>
+        <br>
+        {person1} kannte den Weg wie seine Westentasche und war kurze Zeit später im Funkraum...<br>
+        <br>
+        <img class="img-fluid" style="max-width: 700px;" src="../../../uboot_plan.png">
+        <br>
+        (grüner Punkt = Start)
       |||,
-      question: templates.SelectQuestion {
-        text: 'Wie lautet das Passwort?',
-        answers: [
-          templates.Answer {
-            text: 'answer 1',
-            value: '1',
-            correct: true,
-          },
-          templates.Answer {
-            text: 'answer 2',
-            value: '2',
-          },
-        ],
+      question: templates.TextQuestion {
+        text: 'Welche Route hat {person1} genommen?',
+        value: '7245831',
+        levenshtein: 2,
+        ignorecase: false,
       },
-      hints: [],
-      success: '',
+      success: |||
+        Als {person1} im Funkraum ankam traff er auf {person3}, die sichtlich überrascht war ihn zu sehen!<br>
+        <br>
+        {person3} berichtete ihm, dass die K-19 von einem radikalen Teil der Crew übernommen wurde.<br>
+        Diejenigen, die sich weigerten mitzumachen, wurden ermordet, bzw. in Räume gesperrt.<br>
+        <br>
+        Sie entschied sich mitzuspielen, weil sie so die Chance hatte die K-19 zurückzugewinnen.<br>
+        <br>
+        {person1} und {person3} grübelten gemeinsam nach, wen sie um Hilfe rufen könnten...
+      |||,
     },
     templates.Level {
       meta: templates.LevelMeta {
