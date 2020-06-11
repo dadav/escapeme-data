@@ -37,6 +37,16 @@ templates.Room {
       default: 'Andrej',
     },
     templates.Customization {
+      description: 'Person6 (männlich)',
+      variable: 'person6',
+      default: 'Fedor',
+    },
+    templates.Customization {
+      description: 'Person7 (männlich)',
+      variable: 'person7',
+      default: 'Miroslav',
+    },
+    templates.Customization {
       description: 'Ein Land',
       variable: 'land1',
       default: 'Deutschland',
@@ -75,7 +85,8 @@ templates.Room {
         {person1}s gefundenes Glück, waren aber auch traurig darüber, dass er die Crew verlassen würde. Sie gingen
         schließlich durch dick und dünn, erlebten unzählige Abenteuer miteinander und konnten einander alles erzählen.<br>
         <br>
-        {person2} war der IT-Spezialist der K-19. Er predigte immer wie wichtig ein gutes Passwort sein würde und wie
+        {person2} war der IT-Spezialist der K-19 und genauso alt wie {person1}.<br>
+        Er predigte immer wie wichtig ein gutes Passwort sein würde und wie
         viele einfach Jahr für Jahr ihr Lieblingstier als Passwort benutzten würden.<br>
         {person3} hingegen war für die Kommunikation an Bord verantwortlich.<br>
         Sie lernten sich vor drei Jahren bei einem Außeneinsatz in der russischen Botschaft in {land1} kennen und
@@ -120,7 +131,7 @@ templates.Room {
         levenshtein: 1,
       },
       hints: [
-        'Suche im Internet nach "Morcecode"!',
+        'Suche im Internet nach "Morsecode"!',
       ],
       success: |||
         Endlich, {person1} konnte sich befreien und war nun bereit den Raum zu erkunden!!
@@ -210,17 +221,23 @@ templates.Room {
         <br>
         Folgendes konnte er mithören:<br>
         <br>
-        <b>{person4}:</b> ...mir ergal. Wenn wir erstmal dort sind, gibt es sowieso kein zurück mehr.<br>
-        <b>{person5}:</b> Da hast du recht. Ich bin immernoch ganz erstaunt, wie gut alles läuft.
+        <b>{person4}:</b> ...aber wie können Zwillinge so unterschiedlich sein?<br>
+        Der eine kann nicht lügen und der andere bringt kein wahres Wort über die Lippen.<br>
+        <b>{person5}:</b> Da hast du recht. Da muss bei der Erziehung gewaltig was schief gelaufen sein.<br>
+        Themenwechsel... ich bin immernoch ganz erstaunt, wie gut alles läuft.
         Bis auf die Sache mit {person1} gab es keine Probleme.<br>
         <b>{person4}:</b> Ja, ich hätte nie gedacht, dass {person1} da nicht mitspielt. Naja, selbst schuld...<br>
         <b>{person5}:</b> Nur gut, dass wir ihm die Abschusscodes der Rakenten abnehmen konnten.<br>
         <b>{person4}:</b> Stimmt, ohne die könnten wir den Plan nicht durchführen. Den dritten Teil des Codes habe ich mir
-        schon eingeprägt. Das war auch ganz einfach, weil der Code die Quersumme meiner Personalnummer ist.<br>
+        schon eingeprägt. Das war auch ganz einfach, weil der Code das Querprodukt meiner Personalnummer ist,
+        frag mich aber bitte nicht warum ich das weiß.<br>
         <b>{person5}:</b> Pssst, {person4}, du weißt, das solltest du niemandem sagen, auch mir nicht.<br>
-        <b>{person4}:</b> Verdammt, vergiss was ich gesagt habe.<br>
+        <b>{person4}:</b> Verdammt, du hast recht!!<br>
         <br>
         Daraufin verließen {person4} und {person5} den Raum und {person1} konnte ihn ohne Gefahr durchqueren.<br>
+        Das Gespräch war sehr aufschlußreich für ihn, denn nun wusste er warum er noch am Leben war. Sie wussten nicht ob
+        die Codes, die man ihm wohl entwendet hatte, korrekt waren oder nicht. Das Problem war allerdings, dass er es
+        selbst nicht mehr wusste. Sein Erinnerung über die gestrige Nacht war immernoch in Nebel gehült.<br>
         <br>
         {person1} kannte den Weg wie seine Westentasche und war kurze Zeit später im Funkraum...<br>
         <br>
@@ -245,7 +262,65 @@ templates.Room {
         <br>
         Sie entschied sich mitzuspielen, weil sie so die Chance hatte die K-19 zurückzugewinnen.<br>
         <br>
-        {person1} und {person3} grübelten gemeinsam nach, wen sie um Hilfe rufen könnten...
+        {person1} und {person3} grübelten gemeinsam darüber nach, was die nächsten Schritte sein könnten...
+      |||,
+    },
+    templates.Level {
+      meta: templates.LevelMeta {
+        type: 'normal',
+        title: 'Hilfe!!',
+        description: '{person1} und {person3} versuchen Hilfe zu rufen.',
+        image: 'telefon.jpg',
+        depends: utils.indexes_by(function(l) l.meta.title, ['Funkraum'], $.levels),
+      },
+      text: |||
+        {person1} und {person3} standen vor einem großen Problem. Ein Hilferuf nach außen würde man
+        im Kontrollraum definitiv mitbekommen und dann wären sie geliefert gewesen. Es grenzte schon
+        an ein Wunder, dass {person3}s Morsecode, den sie über einen Lautsprecher an {person1} übermittelte,
+        nur von ihm gehört und verstanden wurde.<br>
+        <br>
+        {person3} hatte eine Idee! Sie hatten im Lager eine neuartige Boje gelagert, eine sogenannte SLOT-Boje.
+        Mit dieser Boje war es möglich, kurze Nachrichten zu speichern, die nach dem Auftauchen durch
+        Radiowellen automatisch übermittelt wurden, ohne dass das U-Boot diese selbst empfangen konnte.<br>
+        Zumindest hoffte sie das. Die Technik war schließlich noch nicht getestet worden.<br>
+        <br>
+        <b>Das ist es! Das ist genau das richtige für uns!!</b>, sagte {person1} und schnappte sich einen Zettel.<br>
+        <br>
+        <b>Was wollen wir senden?</b>, fragte {person3} ihn.<br>
+        <br>
+        Das wusste {person1} selbst nicht so richtig. Aber die Zeit schritt voran und sie mussten handeln. Er schrieb
+        eine kurze Nachricht auf den Zettel und gab ihn {person3}.<br>
+        <br>
+        <b>{person3}, nimm den Zettel, geh zur Boje und schieß sie an die Wasseroberfläche. Ich darf unter keinen Umständen
+        erwischt werden, daher solltest du alleine gehen.<br>
+        Wir treffen uns dann vor dem Kontrollraum</b>, sagte {person1}.<br>
+        <br>
+        {person3} hatte zwar Angst, verstand aber wie wichtig diese Nachricht sein könnte. Sie fasste all ihren Mut zusammen
+        und ging in Richtung Tür, blieb aber kurz davor stehen. Sie schaute auf den Zettel und dachte:<br>
+        <br>
+        <b>"Was wenn doch..."</b><br>
+        <br>
+        Sie schnappte sich den Stift und schien irgendein Kauderwelsch auf den Zettel zu schreiben.<br>
+        <br>
+        <b>Falls man mich mit dem Zettel erwischen sollte...</b>, sagte sie und lächelte.<br>
+        <br>
+        <img class="img-fluid" src="../../../rotX.jpg">
+        <br>
+      |||,
+      question: templates.TextQuestion {
+        text: 'Was war die ursprüngliche Nachricht, bevor {person3} sie verschlüsselte?',
+        value: 'K19 Verrat Hilfe',
+        levenshtein: 2,
+        ignorecase: true,
+      },
+      hints: [
+        'X19? Kommt dir das nicht bekannt vor?',
+        'Manchmal hilft es sich im Kreis zu drehen.',
+      ],
+      success: |||
+        K-19! Verrat! Hilfe! Diese Nachricht sollte jeder verstehen und hoffentlich die richtigen Schlüsse ziehen.<br>
+        <br>
+        {person1} machte sich auf den Weg zum Kontrollraum.
       |||,
     },
     templates.Level {
@@ -259,61 +334,251 @@ templates.Room {
       text: |||
         {person1} entschied, dass der nächste logische Schritt war zum Technikraum zu gehen.<br>
         Mit der Hilfe von {person2} konnte es ihnen womöglich gelingen, die K-19 wieder unter Kontrolle zu
-        bekommen. Als Technikexperte war keine Tür vor ihm sicher, logische Aufgaben zu lösen lag ihm im Blut
-        und solch eine Unterstüzung konnte {person1} jetzt brauchen!<br>
+        bekommen. Als Technikexperte war keine Tür vor ihm sicher und logische Aufgaben zu lösen lag ihm im Blut
+        Solch eine Unterstüzung konnte {person1} jetzt brauchen!<br>
         <br>
         Der Weg war zwar kürzer als zum Funkraum, allerdings lag dieser in der Nähe des Raketenlagers und wurde
         höchstwahrscheinlich gut bewacht. Er ging davon aus, dass das Ziel dieses Angriffs der
         Abschuss eines Nuklearsprengkörpers war und die Eskalation des kalten Krieges bedeuten könnte.<br>
         <br>
-        Er machte sich auf den Weg, musterte jeden Raum den er durchquerte sorgfältig, bevor er ihn betrat.<br>
+        Mit diesen Gedanken im Hinterkopf machte er sich auf den Weg. Er musterte jeden Raum sorgfältig bevor er ihn betrat,
+        denn er wenn er geschnappt worden wäre, wäre alles vorbei gewesen.<br>
         <br>
-
+        In einem der Räume fiel ihm ein komischer Zettel auf dem Boden auf:<br>
+        <img class="img-fluid" src="../../../erster_teil.png">
+        <br>
+        Es schien aber eine Zahl zu fehlen...<br>
+        {person1} hatte das Gefühl, dass der Zettel noch wichtig werden könnte, weshalb er ihn einsteckte.<br>
+        <br>
+        Er durchquerte einen Raum nach dem anderen, bis er schließlich vor {person2}s Technikraum stand.<br>
+        <br>
+        Der Raum war natürlich wieder mit einem ihm unbekannten Passwort geschützt worden...
       |||,
-      question: templates.SelectQuestion {
+      question: templates.TextQuestion {
         text: 'Wie lautet das Passwort?',
-        answers: [
-          templates.Answer {
-            text: 'answer 1',
-            value: '1',
-            correct: true,
-          },
-          templates.Answer {
-            text: 'answer 2',
-            value: '2',
-          },
-        ],
+        value: 'monkey',
+        ignorecase: true,
+        levenshtein: 1,
       },
-      hints: [],
-      success: '',
+      hints: [
+        'Hält sich {person2} an seine eigenen Passwort-Regeln?',
+      ],
+      success: |||
+        Die Tür öffnete sich und {person1} schaute in das überraschte Gesicht von {person2}!<br>
+        <br>
+        "Wie hast du das Passwort....ach, vergiss es!", sagte {person2} und schaute beschähmt auf den Boden.<br>
+        Nichtsdestotrotz war er froh darüber, dass {person1} sich befreien konnte und es bis zu ihm schaffte.<br>
+        <br>
+        {person2} war nicht untätig gewesen und zeigte {person1} eine Liste der Crew:
+        <br>
+        <div class="table-responsive">
+        <table class="table table-sm table-hover table-bordered">
+          <thead>
+            <tr>
+              <th>Personalnummer</th>
+              <th>Name</th>
+              <th>Geburtsdatum</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>9483758767</td>
+              <td>Pjotr</td>
+              <td>20.04.1931</td>
+            </tr>
+            <tr>
+              <td>9483758768</td>
+              <td>Alexej</td>
+              <td>23.08.1931</td>
+            </tr>
+            <tr>
+              <td>9483758769</td>
+              <td>{person6}</td>
+              <td>28.03.1930</td>
+            </tr>
+            <tr>
+              <td>9483758770</td>
+              <td>Danilo</td>
+              <td>16.10.1929</td>
+            </tr>
+            <tr>
+              <td>9483758771</td>
+              <td>Andrej</td>
+              <td>01.02.1945</td>
+            </tr>
+            <tr>
+              <td>9483758772</td>
+              <td>{person1}</td>
+              <td>04.03.1930</td>
+            </tr>
+            <tr>
+              <td>9483758773</td>
+              <td>{person2}</td>
+              <td>12.02.1930</td>
+            </tr>
+            <tr>
+              <td>9483758774</td>
+              <td>{person3}</td>
+              <td>12.02.1936</td>
+            </tr>
+            <tr>
+              <td>9483758775</td>
+              <td>{person4}</td>
+              <td>20.05.1940</td>
+            </tr>
+            <tr>
+              <td>9483758776</td>
+              <td>{person5}</td>
+              <td>04.02.1935</td>
+            </tr>
+            <tr>
+              <td>9483758777</td>
+              <td>{person7}</td>
+              <td>28.03.1930</td>
+            </tr>
+            <tr>
+              <td>9483758778</td>
+              <td>Danilo</td>
+              <td>12.05.1937</td>
+            </tr>
+            <tr>
+              <td>9483758779</td>
+              <td>Lew</td>
+              <td>15.12.1925</td>
+            </tr>
+            <tr>
+              <td>9483758780</td>
+              <td>Nikolaj</td>
+              <td>02.11.1935</td>
+            </tr>
+          </tbody>
+        </table>
+        </div>
+        <br>
+        Er hoffte, dass {person1} mit diesen informationen irgendwas anfangen könnte.<br>
+        <br>
+        {person1} schien vor allem an einem bestimmten Namen interessiert zu sein und machte sich eine kleine Notiz
+        auf dem Zettel den er eingesteckt hatte.<br>
+        <br>
+        Sie vereinbarten sich in 30 Minuten vor dem Kontrollraum zu treffen, da ein gemeinsames durchqueren des U-Boots zu
+        gefährlich war.
+      |||,
     },
     templates.Level {
       meta: templates.LevelMeta {
         type: 'normal',
-        title: 'Hilfe!!',
-        description: '{person1} und {person3} rufen Hilfe!',
-        image: 'telefon.jpg',
-        depends: utils.indexes_by(function(l) l.meta.title, ['Funkraum'], $.levels),
+        title: 'Kontrollraum',
+        description: 'Drei gegen den Rest.',
+        image: 'kontrollraum.jpg',
+        depends: utils.indexes_by(function(l) l.meta.title, ['Hilfe!!', 'Technikraum'], $.levels),
       },
       text: |||
-        test
+        Nun war es soweit.<br>
+        Die Konfrontation mit den Verrätern lies sich nicht mehr vermeiden.<br>
+        Es ging um alles oder nichts.<br>
+        <br>
+        Als {person1} zum Kontrollraum kam, waren {person2} und {person3} schon da. Sie waren sichtlich nervös, was
+        er ihnen natürlich nicht verübeln konnte, denn ihm ging es genauso.<br>
+        <br>
+        <b>Wie ist der Plan?</b>, fragte {person2} in die Runde.<br>
+        <br>
+        <b>Wir müssen die Kontrolle zurückgewinnen.</b>, antwortete {person1}.<br>
+        <br>
+        <b>Ich schlage Folgendes vor: Ihr gebt vor mich erwischt zu haben und führt mich mit scheinbar
+        verbundenen Händen in den Raum. Es werden wahrscheinlich an die 5 Personen anwesend sein. Wir
+        müssen alle ausschalten um die Kontrolle zurückzugewinnen. Sobald dies geschehen ist, versperren wir
+        den Zugang und verhindern somit, dass die Raketen abgefeuert werden können, verstanden?</b>, schlug {person1} vor.<br>
+        <br>
+        <b>Geht klar!</b>, stimmten {person2} und {person3} zu.<br>
+        <br>
+        Und so began das gefährliche Manöver. Die Luke öffnete sich und es waren 4 Personen zu sehen. {person4},
+        {person5}, {person6} und {person7}. Sie waren sehr überrascht und griffen alle nach dem nächsten Gegenstand den
+        sie finden und als Waffe einsetzen konnten. {person2} und {person3} erklärten sich, was die Anspannung
+        sofort etwas mildern konnte.<br>
+        <br>
+        Sie versuchten sich so gut es ging im Raum zu verteilen, sodass jeder so nah wie möglich an einer
+        Person war und dann gab {person1} das Zeichen!<br>
+        <br>
+        {person2} schaltete {person4} aus, der an den Steuerelementen stand. {person3} kümmerte sich um
+        {person5}, der beim Periskop stand und durch eine geschickte Drehung des Periskops
+        einen Schlag auf den Hinterkopf bekam.<br>
+        Es waren nurnoch {person6} und {person7} übrig. {person1}, der sich von hinten anschleichen und beide ausschalten wollte,
+        stolperte und fiel zu Boden.<br>
+        <br>
+        Die Situation immernoch nicht ganz begreifend schrie {person6} plötzlich:<br>
+        <br>
+        <b>STOP!! Die Raketen sind scharf und werden in 15 Minuten abgeschossen!!<br>
+        Wir wissen zwar nur einen Teil des Codes, aber wenn ihr das verhindern wollt braucht ihr unsere Hilfe!!<br>
+        Wenn ihr versprecht unsere Mittäterschaft zu verschweigen werden wir euch helfen...</b><br>
+        <br>
+        {person1} rief {person2} und {person3} zu sich. Sie waren sich einig nicht wirklich eine Wahl zu haben und
+        stimmten der Forderung schließlich zu.<br>
+        <br>
+        <b>{person6}:</b> Okay, der zweite Teil des Codes lautet 982853987.<br>
+        <b>{person7}:</b> STOP, was erzählst du da? Der zweite Teil des Codes lautet 234655463.<br>
+        <br>
+        {person1} konnte es nicht fassen. Was für ein Spiel wurde hier gespielt? Doch dann ging ihm ein Licht auf.<br>
+        <br>
+        Er stellte {person6} nur eine einzige Frage und war sich sicher den korrekten Code zu wissen!
       |||,
       question: templates.SelectQuestion {
-        text: 'Wie lautet das Passwort?',
+        text: 'Welche Frage stellte er {person6}?',
         answers: [
           templates.Answer {
-            text: 'answer 1',
-            value: '1',
+            text: 'Sagst du die Wahrheit?',
+            value: '0',
+          },
+          templates.Answer {
+            text: 'Welchen Code würde mir {person7} geben?',
+            value: '982853987',
             correct: true,
           },
           templates.Answer {
-            text: 'answer 2',
-            value: '2',
+            text: 'Sagt {person7} die Wahrheit?',
+            value: '0',
+          },
+          templates.Answer {
+            text: 'Lügt ihr beide?',
+            value: '0',
           },
         ],
       },
-      hints: [],
-      success: '',
+      hints: [
+        'In welchem Verhältnis stehen {person6} und {person7}?',
+      ],
+      success: |||
+        {person6} antwortete ihm: <b>{person7} würde euch den Code 234655463 geben.</b>
+        <br>
+        {person2} und {person3} grinsten, denn sie hatten verstanden was dies bedeutete.<br>
+        <br>
+        Die rannten alle drei zu der Abschusskonsole...
+      |||,
+    },
+    templates.Level {
+      meta: templates.LevelMeta {
+        type: 'ende',
+        title: 'Endgame',
+        description: 'Es geht um alles!',
+        image: 'deadline.jpg',
+        depends: utils.indexes_by(function(l) l.meta.title, ['Kontrollraum'], $.levels),
+      },
+      text: |||
+        Der Countdown tickte. Sie hatten nicht mehr viel Zeit und nur einen Versuch!!!
+      |||,
+      question: templates.TextQuestion {
+        text: 'Wie lautet der Abbruch-Code?',
+        value: '348114449294-982853987-59270400',
+        levenshtein: 0,
+        ignorecase: true,
+      },
+      success: |||
+        Sie hatten es geschafft! Die Raketen waren entschärft. Sie verriegelten den Raum und brachten
+        die K-19 zum Auftauchen.<br>
+        <br>
+        Sämtliche Verräter wurden verhaftet und von einem Militärgericht verurteilt.<br>
+        <br>
+        {person1}, {person2} und {person3} gingen als Helden in die Geschichte ein!!
+      |||,
     },
   ],
 }
