@@ -7,7 +7,7 @@ templates.Room {
     description: 'Erlebe ein Abenteuer in dem sich alles um ein mysteriöses U-Boot dreht!',
     image: 'uboot.jpg',
     soundfile: 'uboat.mp3',
-    duration: '1h45m',
+    duration: '2h00m',
     difficulty: 'normal',
   },
   customizations: [
@@ -140,7 +140,7 @@ templates.Room {
     templates.Level {
       meta: templates.LevelMeta {
         type: 'normal',
-        title: 'Gefangen',
+        title: 'Der Raum',
         description: $.levels[0].success,
         image: 'kammer.jpg',
         depends: utils.indexes_by(function(l) l.meta.title, ['Albtraum'], $.levels),
@@ -184,11 +184,13 @@ templates.Room {
       |||,
       question: templates.TextQuestion {
         text: 'Wie lautet das Passwort?',
+        ignorecase: true,
         value: 'nichts',
+        levenshtein: 1,
       },
       hints: [
         'Glaubst du man kann sich jedes Passwort auf dem U-Boot merken?',
-        'Doch was war das? Neben der Luke hing ein kleiner Zettel.',
+        'Schau dir die Luke und Umgebung ganz genau an.',
       ],
       success: |||
         Unglaublich, dass man für dieses Passwort eine Notiz benötigt, oder?<br>
@@ -209,7 +211,7 @@ templates.Room {
         description: '{person1} versucht zum Funkraum zu gelangen.',
         image: 'funkraum.jpg',
         jsfile: 'level3.js',
-        depends: utils.indexes_by(function(l) l.meta.title, ['Gefangen'], $.levels),
+        depends: utils.indexes_by(function(l) l.meta.title, ['Der Raum'], $.levels),
       },
       text: |||
         {person1} entschied sich nun zum Funkraum zu gehen. {person3} sollte es möglich sein
@@ -263,7 +265,8 @@ templates.Room {
         <br>
         Sie entschied sich mitzuspielen, weil sie so die Chance hatte die K-19 zurückzugewinnen.<br>
         <br>
-        {person1} und {person3} grübelten gemeinsam darüber nach, was die nächsten Schritte sein könnten...
+        {person1} und {person3} grübelten gemeinsam darüber nach, wie sie der Außenwelt mitteilen konnten was in
+        der K-19 vor sich ging...
       |||,
     },
     templates.Level {
@@ -315,8 +318,8 @@ templates.Room {
         ignorecase: true,
       },
       hints: [
+        'Was würde Cäsar tun?',
         'X19? Kommt dir das nicht bekannt vor?',
-        'Manchmal hilft es sich im Kreis zu drehen.',
       ],
       success: |||
         K-19! Verrat! Hilfe! Diese Nachricht sollte jeder verstehen und hoffentlich die richtigen Schlüsse ziehen.<br>
@@ -330,7 +333,7 @@ templates.Room {
         title: 'Technikraum',
         description: '{person1} schlägt sich zum Technikraum durch!',
         image: 'technik.jpg',
-        depends: utils.indexes_by(function(l) l.meta.title, ['Gefangen'], $.levels),
+        depends: utils.indexes_by(function(l) l.meta.title, ['Der Raum'], $.levels),
       },
       text: |||
         {person1} entschied, dass der nächste logische Schritt war zum Technikraum zu gehen.<br>
@@ -498,11 +501,14 @@ templates.Room {
         <br>
         Und so began das gefährliche Manöver. Die Luke öffnete sich und es waren 4 Personen zu sehen. {person4},
         {person5}, {person6} und {person7}. Sie waren sehr überrascht und griffen alle nach dem nächsten Gegenstand den
-        sie finden und als Waffe einsetzen konnten. {person2} und {person3} erklärten sich, was die Anspannung
-        sofort etwas mildern konnte.<br>
+        sie finden und als Waffe einsetzen konnten.<br>
         <br>
-        Sie versuchten sich so gut es ging im Raum zu verteilen, sodass jeder so nah wie möglich an einer
-        Person war und dann gab {person1} das Zeichen!<br>
+        {person2} und {person3} erklärten sofort, dass sie {person1} gefangen hätten, was die Anspannung etwas mildern konnte.<br>
+        <br>
+        Sie verteilten sich so gut sie konnten im Kontrollraum, sodass jeder so nah wie möglich an einem
+        der Verräter war.<br>
+        <br>
+        <b>Und dann gab {person1} das Zeichen!</b><br>
         <br>
         {person2} schaltete {person4} aus, der an den Steuerelementen stand. {person3} kümmerte sich um
         {person5}, der beim Periskop stand und durch eine geschickte Drehung des Periskops
@@ -571,7 +577,7 @@ templates.Room {
         Der Countdown tickte. Sie hatten nicht mehr viel Zeit und nur einen Versuch!!!
       |||,
       question: templates.TextQuestion {
-        text: 'Wie lautet der Abbruch-Code?',
+        text: 'Wie lautet der Abbruch-Code (getrennt durch Bindestriche)?',
         value: '348114449294-982853987-59270400',
         levenshtein: 0,
         ignorecase: true,
