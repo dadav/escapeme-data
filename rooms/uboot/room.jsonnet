@@ -244,7 +244,7 @@ templates.Room {
         <br>
         {person1} kannte den Weg wie seine Westentasche und war kurze Zeit später im Funkraum...<br>
         <br>
-        <img onclick="printImage(this);" class="img-fluid" style="max-width: 700px;" src="../../../uboot_plan.png">
+        <img onclick="printImage(this);" class="img-fluid" src="../../../uboot_plan.png">
         <br>
         (Zum Drucken auf das Bild drücken)
       |||,
