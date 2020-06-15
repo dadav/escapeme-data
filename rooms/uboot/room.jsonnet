@@ -96,7 +96,7 @@ templates.Room {
         <br>
         Mit schmerzendem Kopf und gefesselten Händen erlangte {person1} das Bewusstsein...<br>
         <br>
-        Was zum Teufel war geschen?<br>
+        Was zum Teufel war geschehen?<br>
         Das letzte, an das er sich erinnern konnte, war die Wachablösung bei den Atom-Sprengköpfen gestern Nacht.<br>
         <br>
         "Bin ich tot? Ist das der Himmel?...", dachte {person1}. Nein, seine Schmerzen bewiesen ihm das Gegenteil.<br>
@@ -107,8 +107,8 @@ templates.Room {
         <br>
         <b>Er musste die Sache also selbst in die Hand nehmen.</b><br>
         <br>
-        Er tastete, so gut er konnte, mit seinen Fingern die Fesseln ab und entdeckte eine Zahlenschloss. {person1} hatte
-        ein gutes Fingerspritzengefühl und konnte die einzelnen Zahlen fühlen.<br>
+        Er tastete, so gut er konnte, mit seinen Fingern die Fesseln ab und entdeckte ein Zahlenschloss. {person1} hatte
+        ein gutes Fingerspitzengefühl und konnte die einzelnen Zahlen fühlen.<br>
         Es waren 5 Zahlen notwendig...{person1} musste schlucken, denn das hieß,
         dass es <b>100.000</b> mögliche Kombinationen gab...<br>
         <br>
@@ -169,7 +169,8 @@ templates.Room {
         <div id="light-on-text" style="display: none;">
         <br>
         {person1} war sichtlich erleichtert, als er den Lichtschalter betätigte. Endlich wieder Licht!<br>
-        Die Luke war jedoch verschlossen und mit einem Passwort gesichert worden (das war bei Atom-U-Booten üblich).
+        Die Luke war jedoch verschlossen und mit einem Passwort gesichert worden (das war bei Atom-U-Booten üblich).<br>
+        Er hatte keine Ahnung wie das Passwort lauten konnte und durchsuchte daher den Raum nach einem Hinweis...
         </div>
         <br>
         <div id="note" style="display: none;">
@@ -334,7 +335,7 @@ templates.Room {
       text: |||
         {person1} entschied, dass der nächste logische Schritt war zum Technikraum zu gehen.<br>
         Mit der Hilfe von {person2} konnte es ihnen womöglich gelingen, die K-19 wieder unter Kontrolle zu
-        bekommen. Als Technikexperte war keine Tür vor ihm sicher und logische Aufgaben zu lösen lag ihm im Blut
+        bekommen. Als Technikexperte war keine Tür vor ihm sicher und logische Aufgaben zu lösen lag ihm im Blut.<br>
         Solch eine Unterstüzung konnte {person1} jetzt brauchen!<br>
         <br>
         Der Weg war zwar kürzer als zum Funkraum, allerdings lag dieser in der Nähe des Raketenlagers und wurde
@@ -342,7 +343,7 @@ templates.Room {
         Abschuss eines Nuklearsprengkörpers war und die Eskalation des kalten Krieges bedeuten könnte.<br>
         <br>
         Mit diesen Gedanken im Hinterkopf machte er sich auf den Weg. Er musterte jeden Raum sorgfältig bevor er ihn betrat,
-        denn er wenn er geschnappt worden wäre, wäre alles vorbei gewesen.<br>
+        denn wenn er geschnappt worden wäre, wäre alles vorbei gewesen.<br>
         <br>
         In einem der Räume fiel ihm ein komischer Zettel auf dem Boden auf:<br>
         <img class="img-fluid" src="../../../erster_teil.png">
@@ -369,7 +370,9 @@ templates.Room {
         "Wie hast du das Passwort....ach, vergiss es!", sagte {person2} und schaute beschähmt auf den Boden.<br>
         Nichtsdestotrotz war er froh darüber, dass {person1} sich befreien konnte und es bis zu ihm schaffte.<br>
         <br>
-        {person2} war nicht untätig gewesen und zeigte {person1} eine Liste der Crew:
+        {person2} hatte sich in dem Raum eingeschlossen, denn er wollte zwar helfen, konnte aber nicht genug Mut aufbringen um
+        einen Rettungsversuch zu starten. Er war aber nicht untätig gewesen und zeigte {person1} eine Liste mit Informationen
+        der Crew, die er zusammengestellt hatte:
         <br>
         <div class="table-responsive">
         <table class="table table-sm table-hover table-bordered">
@@ -457,8 +460,10 @@ templates.Room {
         <br>
         Er hoffte, dass {person1} mit diesen informationen irgendwas anfangen könnte.<br>
         <br>
-        {person1} schien vor allem an einem bestimmten Namen interessiert zu sein und machte sich eine kleine Notiz
-        auf dem Zettel den er eingesteckt hatte.<br>
+        {person1} überflog die Liste, doch sein Blick stoppte abrupt.<br>
+        <br>
+        Er dachte einen kurzen Moment nach, als ob er sich an etwas erinnern wollte...<br>
+        Plötzlich nahm er einen Zettel von {person2}s Tisch und machte sich eine Notiz.<br>
         <br>
         Sie vereinbarten sich in 30 Minuten vor dem Kontrollraum zu treffen, da ein gemeinsames durchqueren des U-Boots zu
         gefährlich war.
@@ -486,8 +491,8 @@ templates.Room {
         <br>
         <b>Ich schlage Folgendes vor: Ihr gebt vor mich erwischt zu haben und führt mich mit scheinbar
         verbundenen Händen in den Raum. Es werden wahrscheinlich an die 5 Personen anwesend sein. Wir
-        müssen alle ausschalten um die Kontrolle zurückzugewinnen. Sobald dies geschehen ist, versperren wir
-        den Zugang und verhindern somit, dass die Raketen abgefeuert werden können, verstanden?</b>, schlug {person1} vor.<br>
+        müssen alle ausschalten um die Kontrolle zurückzugewinnen. Sobald dies geschehen ist, verbarrikadieren wir
+        den Zugang und versuchen die K-19 an die Oberfläche zu bekommen, verstanden?</b>, schlug {person1} vor.<br>
         <br>
         <b>Geht klar!</b>, stimmten {person2} und {person3} zu.<br>
         <br>
